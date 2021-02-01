@@ -1,212 +1,147 @@
-<p align="center"><a href="https://www.opencartbrasil.com.br/"><img src="https://forum.opencartbrasil.com.br/ext/sitesplat/flatbootsminicms/images/logo/logo-colorida.png" alt="OpenCart Brasil"></a>
+<p align = "center"> <a href="https://www.opencartbrasil.com.br/"> <img src = "https://forum.opencartbrasil.com.br/ext/sitesplat/flatbootsminicms/ images / logo / logo -color.png "alt =" OpenCart Brasil "> </a>
 </p>
 
-<p align="center">
-<a href="./LICENSE"><img src="https://img.shields.io/github/license/opencartbrasil/opencart-rest-api.svg" alt="Licença"></a>
+<p align = "center">
+<a href="./LICENSE"> <img src = "https://img.shields.io/github/license/opencartbrasil/opencart-rest-api.svg" alt = "License"> </a>
 </p>
 
-## Apresentação
+## Presentation
 
-API REST para OpenCart 2 e 3, que permite o acesso a todas as tabelas do banco de dados incluindo as que não são nativas do OpenCart.
+REST API for OpenCart 2 and 3, which allows access to all database tables including those that are not native to OpenCart.
 
-O controle de acesso a API REST é feito através da chave da API que é cadastrada na administração do OpenCart.
+Access control to the REST API is done through the API key that is registered in the OpenCart administration.
 
-Projetos incluídos (Related projects):
+Related projects:
 
-  - [PHP-CRUD-API V1](https://github.com/mevdschee/php-crud-api/tree/v1): Script PHP que adiciona uma API REST com acesso direto ao Banco de dados (Single file PHP script that adds a REST API).
+  - [PHP-CRUD-API V1] (https://github.com/mevdschee/php-crud-api/tree/v1): PHP script that adds a REST API with direct access to the database (Single file PHP script that adds a REST API).
 
-## Requisitos (Requirements)
+## Requirements
 
- 1. PHP 5.3 ou superior.
- 2. Biblioteca PDO habilitada no PHP.
- 3. OpenCart 2.1.0.2 ou superior.
- 3. OpenCart 3.0.0.0 ou superior.
+ 1. PHP 5.3 or higher.
+ 2. PDO library enabled in PHP.
+ 3. OpenCart 2.1.0.2 or higher.
+ 3. OpenCart 3.0.0.0 or higher.
 
-## Instalação (Installation)
+## Installation
 
- 1. Faça o download: https://github.com/opencartbrasil/opencart-rest-api/archive/master.zip
- 2. Descompacte o arquivo zip, e envie por FTP para o diretório raiz de sua loja os arquivo **api.php** e **config_api.php**.
+ 1. Download: https://github.com/opencartbrasil/opencart-rest-api/archive/master.zip
+ 2. Unzip the zip file, and upload the ** api.php ** and ** config_api.php ** files to your store's root directory.
 
-**Pronto!**
+**Ready!**
  
-## Configuração (Configuration)
+## Configuration
 
- 1. Acesse a administração de sua loja, e vá no menu **Configurações→Gerenciar Usuários→API** (System→Users→API).
- 2. Clique no botão "**Novo**" (Add New), no campo "**Nome da API**" (API Name) coloque "**API REST**", logo abaixo, clique no botão "**Gerar**" (Generate) para criar sua "**Chave da API**", no campo "**Situação**" (Status) selecione a opção "**Habilitar**" (Enabled), e clique no botão "**Salvar**" (Save).
+ 1. Access the administration of your store, and go to the menu ** Settings → Manage Users → API ** (System → Users → API).
+ 2. Click the "** New **" button (Add New), in the "** API Name **" field (API Name) place "** API REST **", just below, click the "* * Generate ** "(Generate) to create your" ** API Key ** ", in the" ** Situation ** "(Status) field select the option" ** Enable ** "(Enabled), and click on "** Save **" button.
  
-## Configurações extras (Extra Configuration)
+## Extra configurations (Extra Configuration)
 
-### Restringir o acesso da API por IP (Restrict access IP):
+### Restrict API access by IP (Restrict access IP):
 
-Acesse a administração de sua loja, e vá no menu **Configurações→Gerenciar Usuários→API** (System→Users→API), localize a API com o nome "**API REST**", clique no botão "**Editar**" (Edit), clique na aba "**Endereço IP**" (IP Addresses), clique no botão "**Adicionar IP**" (Add IP), adicione o IP que você deseja que tenha acesso a API, e clique no botão "**Salvar**" (Save).
+Access the administration of your store, and go to the menu ** Settings → Manage Users → API ** (System → Users → API), locate the API with the name "** API REST **", click on the button "** Edit ** "(Edit), click on the tab" ** IP Address ** "(IP Addresses), click the button" ** Add IP ** "(Add IP), add the IP you want to have access to API, and click the "** Save **" button.
  
-Agora edite o arquivo "**config_api.php**", e localize a linha:
+Now edit the file "** config_api.php **", and find the line:
 
-```php
-define('RESTRICT_IP', false);
-```
+`` php
+define ('RESTRICT_IP', false);
+``
 
-E altere para:
+And change to:
 
-```php
-define('RESTRICT_IP', true);
-```
+`` php
+define ('RESTRICT_IP', true);
+``
 
-Por último, salve as alterações no arquivo.
+Finally, save your changes to the file.
 
-### Gravar o log de acessos feitos através da API (Log Access API):
+### Record the log of accesses made through the API (Log Access API):
 
-Edite o arquivo "**config_api.php**", e localize a linha:
+Edit the file "** config_api.php **", and find the line:
 
-```php
-define('SESSION_LOG', false);
-```
+`` php
+define ('SESSION_LOG', false);
+``
 
-E altere para:
+And change to:
 
-```php
-define('SESSION_LOG', true);
-```
+`` php
+define ('SESSION_LOG', true);
+``
 
-Se estiver utilizando o OpenCart 3, localize a linha:
+If using OpenCart 3, find the line:
 
-```php
-define('OPENCART_V3', false);
-```
+`` php
+define ('OPENCART_V3', false);
+``
 
-E altere para:
+And change to:
 
-```php
-define('OPENCART_V3', true);
-```
+`` php
+define ('OPENCART_V3', true);
+``
 
-Salve as alterações no arquivo, sendo que você poderá visualizar os logs de acesso através da administração de sua loja, no no menu **Configurações→Gerenciar Usuários→API** (System→Users→API), localize a API com o nome "**API REST**", clique no botão "**Editar**" (Edit), e clique na aba "**Sessão**" (Session).
+Save the changes to the file, and you can view the access logs through the administration of your store, in the menu ** Settings → Manage Users → API ** (System → Users → API), locate the API with the name " ** REST API ** ", click the" ** Edit ** "button (Edit), and click the" ** Session ** "tab (Session).
 
-## Utilização (Usage)
+## Usage
 
-Acesse a URL da sua loja, incluindo no final o arquivo api.php, conforme o exemplo:
+Access your store's URL, including the api.php file at the end, as shown:
 
-```http
-http://www.seudominio.com.br/api.php
-```
+`` http
+http://www.yourdomain.com/api.php
+``
 
-É necessário informar a sua Chave da API em todas as URLs da API que serão acessadas, passando-a no cabeçalho da requisição com o nome key tendo como valor a sua Chave da API.
+It is necessary to inform your API Key in all API URLs that will be accessed, passing it in the request header with the name key having as value your API Key.
 
-Exemplo:
+Example:
 
-```js
+`` js
 key = mMAnvMIaP7zPHnF7hBi23ebGyIU6sp2eWRfdi08yNWOo8wRXPAWgCol
-```
+``
 
-Caso contrário você receberá a mensagem de erro:
+Otherwise, you will receive the error message:
 
-```js
-{"API Error":"Key not found!"}
-```
+`` js
+{"API Error": "Key not found!"}
+``
 
-Qualquer tabela do banco de dados estará acessivel pela API, independente de ser nativa ou não do OpenCart, para acessar os dados ou enviar dados, deve-se solicitar ou enviar requisições HTTP utilizando os verbos GET, POST, PUT ou DELETE.
+Any database table will be accessible via the API, regardless of whether it is native to OpenCart or not, to access data or send data, you must request or send HTTP requests using the verbs GET, POST, PUT or DELETE.
 
-As URLs são formadas seguindo o padrão (The URLs are formed following the pattern):
+The URLs are formed following the pattern (The URLs are formed following the pattern):
 
-```http
-http://dominio/api.php/nome_tabela/{id} 
-```
+`` http
+http: //domain/api.php/table_name/ {id}
+``
 
-```http
-http://domain/api.php/table_name/{id}
-```
+`` http
+http: //domain/api.php/table_name/ {id}
+``
 
-No exemplo abaixo, solicitamos todos os dados de produtos da tabela oc_product:
+In the example below, we request all product data from the oc_product table:
 
-```http
-GET http://www.seudominio.com.br/api.php/oc_product/
-```
+`` http
+GET http://www.yourdomain.com/api.php/oc_product/
+``
 
-Neste outro exemplo, solicitamos os dados do produto com a coluna product_id igual a 40 da tabela oc_product:
+In this other example, we request the product data with the product_id column equal to 40 in the oc_product table:
 
-```http
-GET http://www.seudominio.com.br/api.php/oc_product/40
-```
+`` http
+GET http://www.yourdomain.com/api.php/oc_product/40
+``
 
-### Documentação completa (Documentation)
+### Complete documentation (Documentation)
 
-[MANUAL DO PHP-CRUD-API V1](https://github.com/mevdschee/php-crud-api/blob/v1/README.md)
+[PHP-CRUD-API V1 MANUAL] (https://github.com/mevdschee/php-crud-api/blob/v1/README.md)
 
-## Acesso a API REST do OpenCart (Access to the REST API OpenCart)
+## Access to the OpenCart REST API (Access to the REST API OpenCart)
 
-### - Listando os produtos: Em PHP (PHP Script) GET:
+### - Listing the products: In PHP (PHP Script) GET:
 
-```php
-<?php
-$headers = array();
-$headers[] = 'Content-Type: application/json';
-$headers[] = 'key: mMAnvMIaP7zPHnF7hBi23ebGyIU6sp2eWRfdi08yNWOo8wRXPAWgCol'; // // Replace key value for API key OpenCart (Only numbers and letters)
+`` php
+<? php
+$ headers = array ();
+$ headers [] = 'Content-Type: application / json';
+$ headers [] = 'key: mMAnvMIaP7zPHnF7hBi23ebGyIU6sp2eWRfdi08yNWOo8wRXPAWgCol'; // // Replace key value for API key OpenCart (Only numbers and letters)
 
-$ch = curl_init();
-curl_setopt_array($ch, [
-	CURLOPT_URL            => 'http://www.seudominio.com.br/api.php/oc_product/', // Replace domain and table name
-	CURLOPT_HTTPHEADER     => $headers,
-	CURLOPT_CUSTOMREQUEST  => 'GET',
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_SSL_VERIFYHOST => false,
-	CURLOPT_SSL_VERIFYPEER => false
-]);
-$out = curl_exec($ch);
-curl_close($ch);
-print_r( $out ); // Result json
-```
-
-### - Cadastrando um departamento: Em PHP (PHP Script) POST:
-
-```php
-<?php
-$headers = array();
-$headers[] = 'Content-Type: application/json';
-$headers[] = 'key: mMAnvMIaP7zPHnF7hBi23ebGyIU6sp2eWRfdi08yNWOo8wRXPAWgCol'; // // Replace key value for API key OpenCart (Only numbers and letters)
-
-$data = array('name' => 'Samsung', 'image' => '', 'sort_order' => '0');
-
-$ch = curl_init();
-curl_setopt_array($ch, [
-	CURLOPT_URL            => 'http://www.seudominio.com.br/api.php/oc_manufacturer/', // Replace domain and table name
-        CURLOPT_HTTPHEADER     => $headers,
-        CURLOPT_CUSTOMREQUEST  => 'POST',
-        CURLOPT_POSTFIELDS     => json_encode($data),
-        CURLOPT_POST           => true,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_SSL_VERIFYHOST => false,
-        CURLOPT_SSL_VERIFYPEER => false
-]);
-$out = curl_exec($ch);
-curl_close($ch);
-print_r( $out ); // Result json
-```
-
-## "Deprecated: Automatically populating $HTTP_RAW_POST_DATA..."
-
-Se ao utilizar a API, você receber o erro abaixo:
-
-**Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0**
-
-No arquivo de configurações do PHP, que geralmente é o "**php.ini**", descomente ( apague o ; ) a linha abaixo:
-```php
-;always_populate_raw_post_data = -1
-```
-
-E reinicie o servidor web. 
-
-### Importante: Este erro costuma aparecer nas versões 5.6 do PHP.
-
-## Contribuindo
-
-Se você encontrou um erro e deseja nos relatar, você deve registrar uma Issue.
-
-Se você tem uma correção ou melhoria e deseja nos enviar, faça um fork e nos envie um Pull request para avaliarmos.
-
-## Vulnerabilidades
-
-Se você descobrir uma vulnerabilidade de segurança, envie um e-mail para [dev@opencartbrasil.com.br](mailto:dev@opencartbrasil.com.br). Todas as vulnerabilidades informadas serão imediatamente tratadas caso confirmadas.
-
-## Licença
-
-O projeto OpenCart Brasil é um software de código aberto licenciado sob a [GPL v3](./LICENSE).
+$ ch = curl_init ();
+curl_setopt_array ($ ch, [
+CURLOPT_URL => 'http://www.yourdomain.com/api.php/oc_product/', //
